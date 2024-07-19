@@ -1,0 +1,34 @@
+{% extends "base/base.html" %}
+{% block content %}
+
+<h2>BIENVENUe DANS GES-BIBLIOTHEQUE</h2>
+<div class="container offert-1">
+	<div class ="row">
+		<h3 class="text center alternt alert-succ"></h3>
+		
+	</div>
+
+
+</div>
+
+
+
+
+<div class="box_scrol">
+	
+	
+	
+	{% if conteur %}
+	{% include "compo/books.html" %}
+	{% else %}
+	<div style="height:66%;display: flex;justify-content: center;align-items: center;flex-direction: column-reverse;">
+		<p><img height="100" src="https://i.pinimg.com/originals/52/cd/db/52cddb4d267e3c3c3637f2abaf61aa5d.gif" /><h2 style="font-size:80px; text-transform: uppercase;text-align: center;">rien trouve</h2></p>
+	</div>
+	{% endif %}
+		
+	
+
+		
+ </div>
+</div>
+{% endblock content %}

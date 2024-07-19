@@ -1,0 +1,37 @@
+
+<br> 
+<div class="contaire row">
+
+
+	{% for livre in livre %}
+	<div data-aos="fade-up" data-aos-delay="{{ livre.id }}00" class="hovcard col-6 col-md mb-5">
+		 
+		<div  class="card zoom" style="width: 131px;">
+			<a href="{% url 'livre' livre.id %}"><img style="width: 129px;height: 168px;" class="card-img-top" 
+			src="{{livre.image.url}}" alt="image de {{livre.titre_livre}}"></a>
+			<div class="card-body" style="padding: 0;">
+				<h4 style="font-size: 10px;margin: 0;padding: 0 4px;">
+				{{livre.titre_livre}}
+			</h4>
+				<p style="margin: 0;padding: 4px;font-size: 8px;display: flex;flex-direction: row;align-items: center;justify-content: space-between;">ecrit par:{{livre.auteur_livre}}  
+					<a href="{% url 'livre' livre.id %}"  style="background: #0e8329;border: none;outline: none;color: snow;"
+					class="rounded-pill px-3">
+				voir
+			</a>
+				</p>
+			</div>
+		</div>
+		
+	</div>
+
+
+	{% endfor %}
+
+
+
+
+
+
+
+
+</div>

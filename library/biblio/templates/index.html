@@ -1,0 +1,53 @@
+
+{% extends 'base/base.html' %}
+{% block content %}
+{% load static %}
+
+
+
+<div class="box_scrol">
+	   <h1 class="text_anima" style="height: 200px;width: 100%;display: flex;justify-content: center;align-items: center;flex-wrap: wrap;align-content: center;">
+	   	Books Lib  <span style="color: #eb9817de;position: relative;"></span></h1>
+	<h2>Nos Livres</h2>
+	<div class="box_scrol">
+	{% include "compo/books.html" %}
+</div>
+</div>
+
+  </div>
+
+</div>
+
+
+<script type="text/javascript">
+	const dynamicText = document.querySelector(".text_anima span");
+const words = [" By ESTIM"," Lire", " Partage", " S'amuser"];
+// Variables to track the position and deletion status of the word
+let wordIndex = 0;
+let charIndex = 0;
+let isDeleting = false;
+const typeEffect = () => {
+    const currentWord = words[wordIndex];
+    const currentChar = currentWord.substring(0, charIndex);
+    dynamicText.textContent = currentChar;
+    dynamicText.classList.add("stop-blinking");
+    if (!isDeleting && charIndex < currentWord.length) {
+        // If condition is true, type the next character
+        charIndex++;
+        setTimeout(typeEffect, 200);
+    } else if (isDeleting && charIndex > 0) {
+        // If condition is true, remove the previous character
+        charIndex--;
+        setTimeout(typeEffect, 100);
+    } else {
+        // If word is deleted then switch to the next word
+        isDeleting = !isDeleting;
+        dynamicText.classList.remove("stop-blinking");
+        wordIndex = !isDeleting ? (wordIndex + 1) % words.length : wordIndex;
+        setTimeout(typeEffect, 1200);
+    }
+}
+typeEffect();
+</script>
+
+{% endblock content %}

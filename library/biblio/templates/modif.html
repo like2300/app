@@ -1,0 +1,39 @@
+{% extends "base/base.html" %}
+{% block content %}
+{% load static %}
+<h2>Pannel des livres</h2>
+
+<div class="box_scrol">
+<table class="table table-light table-striped">
+ <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">livre</th>
+      <th scope="col">auteur</th>
+      <th scope="col">parametre</th>
+    </tr>
+  </thead>
+  <tbody>
+  	{% for livre in livre %}
+    <tr>
+      <th scope="row">{{livre.id}}</th>
+      <td><a style="
+    color: #0e7a0e;
+" href="{% url 'livre' livre.id %}">{{livre.titre_livre}}</a></td>
+      <td>{{livre.auteur_livre}}</td>
+
+      <td>
+      	<a href="{% url 'delete' livre.id %}" class="mr-4">
+          <img height="22"  src="{% static 'img/delete-left-solid.svg' %}">
+        </a>
+
+        <a href="{% url 'update' livre.id %}">
+          <img height="22"  src="{% static 'img/pen-to-square-solid.svg' %}">
+        </a>
+      </td>
+    </tr>
+    {% endfor %}
+</tbody>
+</table>
+</div>
+{% endblock content %}

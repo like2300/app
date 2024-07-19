@@ -1,0 +1,53 @@
+{% extends "base/base.html" %}
+{% block content %}
+
+
+
+<div class="contaire">
+  {% include "compo/adder.html" %}
+<style>
+	    label{
+	    	    display: block;
+	    }
+	    input{
+    width: 203px;
+    padding: 4px;
+    border-radius: 12px;
+    border: 1px solid #0b7f0bd1;
+	    }
+
+	    input[type="file"]{
+	    	background: green;
+	    }
+	    label[for="id_image"],
+	    label[for="id_fichier_livre"]{
+	    	display: inline;
+	    }
+	    textarea{
+	     height: 187px;
+	     border-radius: 12px;
+	     border: 1px solid green;
+	     text-indent: 12px;
+	    }
+</style>
+
+<form method="post" enctype="multipart/form-data" >
+		{% csrf_token %}
+		{{form.as_p}}
+		<button type="submit" class="btn btn-primary">create</button>
+</form>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% endblock content %}
